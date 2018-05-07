@@ -1,7 +1,7 @@
 const globEntries = require('./src/globEntries');
-const MultipleBundlesWebpackPlugin = require('./src/index');
+const MultipleBundlesPlugin = require('./src/index');
 
 module.exports = {
   globEntries,
-	MultipleBundlesWebpackPlugin,
+	MultipleBundlesPlugin,
 };

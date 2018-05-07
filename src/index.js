@@ -1,4 +1,4 @@
-class MultipleBundlesWebpackPlugin {
+class MultipleBundlesPlugin {
   constructor({ test = /\.js$/, entries }) {
     this.filePatterns = entries;
     this.fileExtensions = test;
@@ -19,4 +19,4 @@ class MultipleBundlesWebpackPlugin {
   }
 }
 
-module.exports = MultipleBundlesWebpackPlugin;
+module.exports = MultipleBundlesPlugin;

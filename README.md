@@ -27,7 +27,7 @@ npm install --save-dev multiple-bundles-webpack-plugin
 
 ##### Import plugin and helper method:
 ```
-const { MultipleBundlesWebpackPlugin, globEntries } = require('multiple-bundles-webpack-plugin');
+const { MultipleBundlesPlugin, globEntries } = require('multiple-bundles-webpack-plugin');
 
 ```
 
@@ -64,7 +64,7 @@ By default this search tree and construct nested output tree, matching pattern p
 ```
 {
   plugins: [
-    new MultipleBundlesWebpackPlugin({
+    new MultipleBundlesPlugin({
         test: /\.js$/,
         entries: globEntries(['./sass/*.scss'], { relativeRoot: './sass/'}))
     }
