@@ -7,11 +7,16 @@ const generateCustomPath = (file) => {
   return path.posix.join(directoryName, fileName).split('.').shift();
 };
 
-const globEntries = (entryPattern) => entryPattern.reduce((outputAccumulator, pattern) =>
-    Object.assign(outputAccumulator, glob.sync(pattern).reduce((accumulator, file) => {
-      accumulator[generateCustomPath(file)] = file;
-        return accumulator;
-        }, {}))
-  , {});
+const globEntries = (entryPattern) => {
+  const reducer = entryPattern.reduce((outputAccumulator, pattern) => {
+    const paths = glob.sync(pattern).reduce((accumulator, file) => {
+      const acc = accumulator;
+      acc[generateCustomPath(file)] = file;
+      return acc;
+    }, {});
+    return Object.assign(outputAccumulator, paths, {});
+  }, {});
+  return reducer;
+};
 
 module.exports = globEntries;

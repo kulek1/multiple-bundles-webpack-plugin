@@ -7,7 +7,8 @@
   "license": "MIT",
   "devDependencies": {
     "eslint": "^4.19.1",
-    "eslint-config-airbnb-base": "^12.1.0"
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.11.0"
   },
   "homepage": "https://github.com/kulek1/multiple-bundles-webpack-plugin.git",
   "repository": {
@@ -16,5 +17,8 @@
   },
   "engines": {
     "node": ">= 6.10"
+  },
+  "dependencies": {
+    "glob": "^7.1.2"
   }
 }

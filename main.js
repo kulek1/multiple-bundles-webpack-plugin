@@ -3,5 +3,5 @@ const MultipleBundlesPlugin = require('./src/index');
 
 module.exports = {
   globEntries,
-	MultipleBundlesPlugin,
+  MultipleBundlesPlugin,
 };
