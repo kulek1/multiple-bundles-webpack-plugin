@@ -9,8 +9,8 @@
 </div>
 
   <br><br>
-This plugin prevents Webpack from creating an separate output file from multiple, unrelated components.
-Inspired by [Webpack-flat-bundle](https://github.com/xolir/webpack-flat-bundle/tree/master/plugin)
+This plugin prevents Webpack 4 from creating an separate output file from multiple, unrelated components.
+Inspired by [Webpack-flat-bundle](https://github.com/xolir/webpack-flat-bundle/tree/master/plugin).
 
   <h2 align="center">Usage</h2>
 
