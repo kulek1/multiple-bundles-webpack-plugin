@@ -31,28 +31,30 @@ const { MultipleBundlesPlugin, globEntries } = require('multiple-bundles-webpack
 
 ```
 
-##### Add following to your webpack config:
-```
-const entries = Object.assign(
-  globEntries(['./src/js/*/*.js'], { relativeRoot: './src/js' }),
-  globEntries(['./src/sass/*/*.scss'], { relativeRoot: './src/sass/' }),
-);
-```
+ ##### Add following to your webpack config:
+ ```
+const entries = {
+  ...globEntries(['./src/js/*/*.js']),
+  ...globEntries(['./src/sass/*/*.scss'], { sass: true }),
+};
+ ```
 
-It will create an object something like that:
-```
-{ 'components/helloWorld': './src/js/components/helloWorld.js',
-  'libs/picturefill': './src/js/libs/picturefill.js',
-  'core/_variables': './src/sass/core/_variables.scss',
-  'core/main': './src/sass/core/main.scss',
-  'utils/author': './src/sass/utils/author.scss' }
-```
+> `sass` key as a second argument is needed to replace bundles paths from `sass/scss` to `css`
 
-Then add `entries` object to `entry` property:
-```
-{
-  entry: entries
-}
+ It will create an object something like that:
+ ```
+{ 'js/components/helloWorld': './src/js/components/helloWorld.js',
+  'js/libs/picturefill': './src/js/libs/picturefill.js',
+  'css/core/_variables': './src/sass/core/_variables.scss',
+  'css/core/main': './src/sass/core/main.scss',
+  'css/utils/author': './src/sass/utils/author.scss' }
+ ```
+
+Then add `entries` object to `entry` property in webpack's object:
+ ```
+ {
+   entry: entries
+ }
 ```
 
 How it works?
