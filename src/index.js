@@ -1,10 +1,7 @@
 const PLUGIN_NAME = 'multiple-bundles-plugin';
 
 class MultipleBundlesPlugin {
-  constructor({
-    test = /\.js$/,
-    entries
-  }) {
+  constructor({ test = /\.js$/, entries }) {
     this.filePatterns = entries;
     this.fileExtensions = test;
     this.cache = [];
@@ -14,7 +11,10 @@ class MultipleBundlesPlugin {
     compiler.hooks.compilation.tap(PLUGIN_NAME, (compilation) => {
       compilation.hooks.chunkAsset.tap(PLUGIN_NAME, (chunk, fileName) => {
         if (
-          this.fileExtensions.test(fileName) &&
+          this.fileExtensions.test(fileName)
+          &&
+          chunk.entryModule
+          &&
           this.isMatchToFilePattern(chunk.entryModule.rawRequest)
         ) {
           this.addToCache(fileName);
@@ -24,13 +24,13 @@ class MultipleBundlesPlugin {
       compilation.hooks.afterOptimizeChunkAssets.tap(PLUGIN_NAME, () => {
         this.cache.map(fileName => delete compilation.assets[fileName]);
       });
+    });
 
-      compiler.hooks.emit.tap(PLUGIN_NAME, (compilation) => {
-        Object.keys(compilation.assets).map((item) => {
-          const fixedName = this.trimFirstDirectory(item);
-          compilation.assets[fixedName] = compilation.assets[item];
-          delete compilation.assets[item];
-        });
+    compiler.hooks.emit.tap(PLUGIN_NAME, (compilation) => {
+      Object.keys(compilation.assets).map((item) => {
+        const fixedName = this.trimFirstDirectory(item);
+        compilation.assets[fixedName] = compilation.assets[item];
+        delete compilation.assets[item];
       });
     });
   }
