@@ -83,3 +83,17 @@ By default this search tree and construct nested output tree, matching pattern p
 
 If you're using Mini-Extract-Css-Plugin it's important to set `test` property to `/\.js$\` to matching only js files,
 Otherwise plugin will prevent css files from emitting.
+
+## What does not work
+
+ - specific styles of SourceMaps don't work properly with those settings: (`devtool` option)
+	 - inline-cheap-source-map
+	 - inline-cheap-module-source-map
+	 - source-map
+	 - inline-source-map
+	 - hidden-source-map
+	 - nosources-source-map
+
+The upper part of properties in the table works as expected. See reference: https://webpack.js.org/configuration/devtool/
+
+**Feel free to make a pull request with new features or hotfixes.**
