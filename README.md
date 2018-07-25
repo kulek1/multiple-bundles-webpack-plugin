@@ -94,6 +94,8 @@ Otherwise plugin will prevent css files from emitting.
 	 - hidden-source-map
 	 - nosources-source-map
 
+Inline sourcemaps (JS) are added at the end of CSS files which is misbehavior.
+
 The upper part of properties in the table works as expected. See reference: https://webpack.js.org/configuration/devtool/
 
 **Feel free to make a pull request with new features or hotfixes.**
