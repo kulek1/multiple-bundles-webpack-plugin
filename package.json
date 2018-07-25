@@ -1,14 +1,21 @@
 {
   "name": "multiple-bundles-webpack-plugin",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Extracts multiple components into separate bundles",
   "main": "main.js",
   "author": "Mateusz Kuliński",
   "license": "MIT",
+  "scripts": {
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "test:dev": "jest --watch",
+    "lint": "eslint src/**.js"
+  },
   "devDependencies": {
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.11.0"
+    "eslint-plugin-import": "^2.11.0",
+    "jest": "^23.4.1"
   },
   "homepage": "https://github.com/kulek1/multiple-bundles-webpack-plugin.git",
   "repository": {

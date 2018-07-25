@@ -1,6 +1,6 @@
 const glob = require('glob');
 const path = require('path');
-const { compose, takeLast, split, join, shift, head } = require('ramda');
+const { compose, takeLast, split, join, head } = require('ramda');
 
 const sassRegex = /\/(sass|scss)\//;
 
@@ -9,9 +9,19 @@ const sassHelper = (file, isSass) => {
   const dir = path.dirname(file);
   return isSass ? trimSassFolder(dir) : dir;
 };
-const getTwoLastDirs = compose(join('/'), takeLast(2), split('/'), sassHelper);
+const getTwoLastDirs = compose(
+  join('/'),
+  takeLast(2),
+  split('/'),
+  sassHelper,
+);
 const joinDirectory = directory => fileName => path.posix.join(directory, fileName);
-const takePathWithoutExt = directory => compose(head, split('.'), joinDirectory(directory));
+const takePathWithoutExt = directory =>
+  compose(
+    head,
+    split('.'),
+    joinDirectory(directory),
+  );
 
 const generateCustomPath = (file, sass) => {
   const fileName = path.basename(file);
@@ -32,4 +42,8 @@ const globEntries = (entryPattern, { sass } = { sass: false }) => {
   return reducer;
 };
 
-module.exports = globEntries;
+module.exports = {
+  globEntries,
+  takePathWithoutExt,
+  joinDirectory,
+};
