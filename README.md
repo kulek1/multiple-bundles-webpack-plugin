@@ -6,10 +6,13 @@
   <h1>multiple-bundles-webpack-plugin</h1>
   <p>Create multiple bundles from independent js/scss components.</p>
   <a href="https://badge.fury.io/js/multiple-bundles-webpack-plugin">
-    <img src="https://badge.fury.io/js/multiple-bundles-webpack-plugin.svg" alt="npm version" height="18">
+    <img src="https://badge.fury.io/js/multiple-bundles-webpack-plugin.svg" alt="npm version" height="18"/>
   </a>
   <a href="https://img.shields.io/npm/dt/multiple-bundles-webpack-plugin.svg">
-    <img src="https://img.shields.io/npm/dt/multiple-bundles-webpack-plugin.svg" alt="npm downloads" height="18">
+    <img src="https://img.shields.io/npm/dt/multiple-bundles-webpack-plugin.svg" alt="npm downloads" height="18"/>
+  </a>
+  <a href="https://circleci.com/gh/kulek1/multiple-bundles-webpack-plugin/tree/master">
+    <img src="https://circleci.com/gh/kulek1/multiple-bundles-webpack-plugin.svg?style=shield" alt="circleci build" height="18"/>
   </a>
 </div>
 
