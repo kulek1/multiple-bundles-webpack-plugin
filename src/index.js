@@ -21,7 +21,7 @@ class MultipleBundlesPlugin {
         }
       });
 
-      compilation.hooks.afterOptimizeChunkAssets.tap(PLUGIN_NAME, () => {
+      compilation.hooks.afterOptimizeAssets.tap(PLUGIN_NAME, () => {
         this.cache.map(fileName => delete compilation.assets[fileName]);
       });
     });
