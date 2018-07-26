@@ -96,7 +96,10 @@ Otherwise plugin will prevent css files from emitting.
 
 ## What does not work
 
-- specific styles of SourceMaps don't work properly with those settings: (`devtool` option) - inline-cheap-source-map - inline-cheap-module-source-map - source-map - inline-source-map - hidden-source-map - nosources-source-map
+ - specific styles of SourceMaps don't work properly with those settings: (`devtool` option)
+	 - inline-cheap-source-map
+	 - inline-cheap-module-source-map
+	 - inline-source-map
 
 Inline sourcemaps (JS) are added at the end of CSS files which is misbehavior.
 
