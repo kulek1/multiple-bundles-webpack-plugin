@@ -1,6 +1,6 @@
 {
   "name": "multiple-bundles-webpack-plugin",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Extracts multiple components into separate bundles",
   "main": "main.js",
   "author": "Mateusz Kuliński",

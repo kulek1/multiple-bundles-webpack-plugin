@@ -19,12 +19,16 @@ class MultipleBundlesPlugin {
       });
 
       compilation.hooks.afterOptimizeAssets.tap(PLUGIN_NAME, () => {
-        this.cache.map(fileName => delete compilation.assets[fileName]);
+        this.cache.forEach((fileName) => {
+          delete compilation.assets[fileName];
+          delete compilation.assets[`${fileName}.map`];
+        });
+        this.cache = [];
       });
     });
 
     compiler.hooks.emit.tap(PLUGIN_NAME, (compilation) => {
-      Object.keys(compilation.assets).map((item) => {
+      Object.keys(compilation.assets).forEach((item) => {
         const fixedName = this.trimFirstDirectory(item);
         compilation.assets[fixedName] = compilation.assets[item];
         delete compilation.assets[item];
