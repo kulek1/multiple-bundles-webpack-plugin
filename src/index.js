@@ -10,9 +10,9 @@ class MultipleBundlesPlugin {
     compiler.hooks.compilation.tap(PLUGIN_NAME, (compilation) => {
       compilation.hooks.chunkAsset.tap(PLUGIN_NAME, (chunk, fileName) => {
         if (
-          this.fileExtensions.test(fileName) &&
-          chunk.entryModule &&
-          this.isMatchToFilePattern(chunk.entryModule.rawRequest)
+          this.fileExtensions.test(fileName)
+          && chunk.entryModule
+          && this.isMatchToFilePattern(chunk.entryModule.rawRequest)
         ) {
           this.addToCache(fileName);
         }
