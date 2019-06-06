@@ -11,6 +11,7 @@
     "no-param-reassign": [
       "error",
       { "props": true, "ignorePropertyModificationsFor": ["compilation"] }
-    ]
+    ],
+    "class-methods-use-this": "warn"
   }
 }
