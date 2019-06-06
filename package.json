@@ -23,7 +23,7 @@
     "url": "git+https://github.com/kulek1/multiple-bundles-webpack-plugin.git"
   },
   "engines": {
-    "node": ">= 6.10"
+    "node": ">= 8.16"
   },
   "dependencies": {
     "glob": "^7.1.2",
