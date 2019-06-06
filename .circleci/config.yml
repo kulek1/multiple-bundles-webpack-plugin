@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/multiple-bundles-webpack-plugin
     docker:
-      - image: circleci/node:8.11.1
+      - image: circleci/node:8.16
     steps:
       - checkout
       - restore_cache:
@@ -16,8 +16,8 @@ jobs:
           paths:
             - ./node_modules
       - run:
-          name: test
-          command: npm test
+          name: Run JS Audits
+          command: npm run lint
       - run:
           name: code-coverage
           command: 'npm run test:coverage'
